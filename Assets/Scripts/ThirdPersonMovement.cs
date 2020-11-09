@@ -5,6 +5,7 @@ using UnityEngine;
 public class ThirdPersonMovement : MonoBehaviour
 {
     public CharacterController controller;
+    public Animator animator;
 
     public float movementSpeed;
     public float turnSpeed;
@@ -19,17 +20,23 @@ public class ThirdPersonMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         float mouseX = Input.GetAxis("Mouse X");
 
+        animator.SetFloat("ForwardandBack", vertical);
+        animator.SetFloat("LeftandRight", horizontal);
+        animator.SetBool("Jumping", false);
+
+
         Vector3 direction = new Vector3(horizontal, 0f, vertical); ;
 
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             jump = jumpSpeed;
+            animator.SetBool("Jumping", true);
         }
+
 
         if(!isGrounded)
         {
             jump += .5f * Physics.gravity.y * Time.deltaTime;
-            
         }
 
         direction.y = jump;

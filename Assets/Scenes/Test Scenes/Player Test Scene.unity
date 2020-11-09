@@ -435,7 +435,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577322491}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.050589085, y: 1.5745385, z: -13.3360405}
+  m_LocalPosition: {x: -0.050589085, y: 1.4645385, z: -13.3360405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 226314235}
@@ -892,7 +892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442544414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.050589085, y: 1.5745385, z: -13.3360405}
+  m_LocalPosition: {x: -0.050589085, y: 1.4645385, z: -13.3360405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 264379456}
@@ -1279,7 +1279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148859439239}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.26, y: 0.21, z: -0.419}
+  m_LocalPosition: {x: 5.26, y: 0.1, z: -0.419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 826702034508932875}
@@ -1454,6 +1454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 919132148859439240}
+  animator: {fileID: 5866666021135648839}
   movementSpeed: 5
   turnSpeed: 1
   jumpSpeed: 2
@@ -1472,7 +1473,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5989939292787777143, guid: 04d99f442e765424a95c204df0f27e34, type: 3}
   hand: {fileID: 5858173407253850114}
   aim: {fileID: 737868895}
-  projectileSpeed: 10
+  projectileSpeed: 20
+  animator: {fileID: 5866666021135648839}
 --- !u!4 &946152174830344426
 Transform:
   m_ObjectHideFlags: 0
