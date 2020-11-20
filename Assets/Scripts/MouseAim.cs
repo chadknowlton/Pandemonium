@@ -5,19 +5,30 @@ using UnityEngine;
 public class MouseAim : MonoBehaviour
 {
 
-    public float turnSpeed;
-    private float yCameraLimit = 30;
+    private float shiftSpeed;
+    private float invert;
+
+    private float yCameraLimit1 = 30;
+    private float yCameraLimit2 = 80;
+
+    private ThirdPersonMovement movement;
+    private float yCameraLimit;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        shiftSpeed = GameSetting.YAXISSENTITITY;
+        invert = GameSetting.IsYInsert_f();
+
+        movement = GetComponentInParent<ThirdPersonMovement>();
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        float mouseY = Input.GetAxis("Mouse Y") * turnSpeed * -1;
+        float mouseY = Input.GetAxis("Mouse Y") * shiftSpeed * invert;
 
         transform.Rotate(mouseY, 0f, 0f);
         Vector3 rotation = transform.localRotation.eulerAngles;
@@ -25,6 +36,15 @@ public class MouseAim : MonoBehaviour
         if(rotation.x > 180)
         {
             rotation.x -= 360;
+        }
+
+        if(movement.isGrounded)
+        {
+            yCameraLimit = yCameraLimit1;
+        }
+        else
+        {
+            yCameraLimit = yCameraLimit2;
         }
 
         rotation.x = Mathf.Clamp(rotation.x,(-1 * yCameraLimit), yCameraLimit);

@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public float aggroRadius;
 
     private Rigidbody rbody;
     private Animator animator;
@@ -14,7 +13,8 @@ public class EnemyController : MonoBehaviour
 
     private Transform playerTransform;
 
-    float movement;
+    private float movement;
+    private float aggroRadius;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour
         status = GetComponent<EnemyStatus>();
 
         movement = 0f;
+        aggroRadius = status.aggroRange;
     }
 
     // Update is called once per frame
@@ -78,6 +79,13 @@ public class EnemyController : MonoBehaviour
     void Attack()
     {
         movement = 0f;
+        Vector3 dir = playerTransform.position - transform.position;
+        dir = dir.normalized;
+        dir.y = 0f;
+
+        Quaternion rot = Quaternion.LookRotation(dir);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, rot, Time.deltaTime * 5f);
         ai.SetDestination(transform.position);
         animator.Play("Attack");
     }

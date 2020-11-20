@@ -22,14 +22,15 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        GameObject monster = Instantiate(monsterPrefabs[0]);
-        float point = Random.Range(0f, 4f) / 1;
+        float point = Random.Range(0.01f, monsterPrefabs.Length) - 0.01f;
+        GameObject monster = Instantiate(monsterPrefabs[(int)point]);
 
+        point = Random.Range(0.01f, spawnPoints.Length) - 0.01f;
         monster.transform.position = spawnPoints[(int)point].position;
 
+        numToSpawn--;
 
         yield return new WaitForSeconds(1f);
-        numToSpawn--;
 
         if(numToSpawn > 0)
         {

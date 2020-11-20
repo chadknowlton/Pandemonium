@@ -6,11 +6,23 @@ public class Shooting : MonoBehaviour
 {
     public GameObject projectilePrefab;
     public Transform hand;
-    public Transform aim;
 
-    public float projectileSpeed;
+    [SerializeField]
+    private Transform aim;
 
-    
+    [SerializeField]
+    private float speed;
+
+    [SerializeField]
+    private int damage;
+
+    void Start()
+    {
+        speed = PlayerData.GetProjectileSpeed();
+        aim = transform.GetChild(2).GetComponent<Transform>();
+        damage = PlayerData.GetShootingDamage();
+    }
+
 
     void Update()
     {
@@ -45,13 +57,12 @@ public class Shooting : MonoBehaviour
         Debug.DrawRay(hand.position, ray.direction * 100f, Color.red, 10f);
 
         GameObject projectile = Instantiate(projectilePrefab);
+        Physics.IgnoreCollision(GetComponent<Collider>(), projectile.GetComponent<Collider>());
 
+        projectile.GetComponent<Projectile>().damage = damage;
         projectile.transform.position = hand.position;
-
         projectile.transform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
-
-        projectile.GetComponent<Rigidbody>().AddForce(ray.direction * projectileSpeed, ForceMode.Impulse);
-        
+        projectile.GetComponent<Rigidbody>().AddForce(ray.direction * speed, ForceMode.Impulse);
     }
 
 }

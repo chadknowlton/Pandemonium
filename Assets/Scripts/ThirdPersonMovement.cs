@@ -4,21 +4,38 @@ using UnityEngine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    public CharacterController controller;
-    public Animator animator;
+    private CharacterController controller;
+    private Animator animator;
 
-    public float movementSpeed;
-    public float turnSpeed;
-    public float jumpSpeed;
+    [SerializeField]
+    private float movementSpeed;
+    [SerializeField]
+    private float jumpSpeed;
 
-    bool isGrounded = false;
+    private float shiftSpeed;
+    private float xInvert;
+
+    public bool isGrounded = false;
     float jump = 0f;
+
+    void Start()
+    {
+        controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+
+        movementSpeed = PlayerData.GetMovementSpeed();
+        jumpSpeed = PlayerData.GetJumpSpeed();
+
+        shiftSpeed = GameSetting.XAXISSENTITITY;
+        xInvert = GameSetting.IsXInsert_f();
+
+    }
 
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        float mouseX = Input.GetAxis("Mouse X");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        float mouseX = Input.GetAxis("Mouse X") * shiftSpeed * xInvert;
 
         animator.SetFloat("ForwardandBack", vertical);
         animator.SetFloat("LeftandRight", horizontal);
@@ -54,7 +71,6 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else
         {
-
             isGrounded = false;
         }
     }
