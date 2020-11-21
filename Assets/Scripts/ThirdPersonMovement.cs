@@ -28,39 +28,42 @@ public class ThirdPersonMovement : MonoBehaviour
 
         shiftSpeed = GameSetting.XAXISSENTITITY;
         xInvert = GameSetting.IsXInsert_f();
-
     }
 
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        float mouseX = Input.GetAxis("Mouse X") * shiftSpeed * xInvert;
-
-        animator.SetFloat("ForwardandBack", vertical);
-        animator.SetFloat("LeftandRight", horizontal);
-        animator.SetBool("Jumping", false);
-
-
-        Vector3 direction = new Vector3(horizontal, 0f, vertical); ;
-
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(!GameManager.isPaused)
         {
-            jump = jumpSpeed;
-            animator.SetBool("Jumping", true);
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+            float mouseX = Input.GetAxis("Mouse X") * shiftSpeed * xInvert;
+
+            animator.SetFloat("ForwardandBack", vertical);
+            animator.SetFloat("LeftandRight", horizontal);
+            animator.SetBool("Jumping", false);
+
+
+            Vector3 direction = new Vector3(horizontal, 0f, vertical); ;
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                jump = jumpSpeed;
+                animator.SetBool("Jumping", true);
+            }
+
+
+            if (!isGrounded)
+            {
+                jump += .5f * Physics.gravity.y * Time.deltaTime;
+            }
+
+            direction.y = jump;
+
+            transform.Rotate(0f, mouseX, 0f);
+            direction = transform.rotation * direction;
+
+            controller.Move(direction * movementSpeed * Time.deltaTime);
         }
-
-
-        if(!isGrounded)
-        {
-            jump += .5f * Physics.gravity.y * Time.deltaTime;
-        }
-
-        direction.y = jump;
-
-        transform.Rotate(0f, mouseX, 0f);
-        direction = transform.rotation * direction;
-        controller.Move(direction * movementSpeed * Time.deltaTime);
     }
 
     void FixedUpdate()

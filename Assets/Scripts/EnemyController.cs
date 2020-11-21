@@ -22,11 +22,13 @@ public class EnemyController : MonoBehaviour
         playerTransform = GameObject.Find("Wizard").transform;
         animator = GetComponent<Animator>();
         ai = GetComponent<NavMeshAgent>();
+        ai.speed = GetComponent<EnemyData>().movementSpeed;
         rbody = GetComponent<Rigidbody>();
         status = GetComponent<EnemyStatus>();
 
+
         movement = 0f;
-        aggroRadius = status.aggroRange;
+        aggroRadius = GetComponent<EnemyData>().aggroRange;
     }
 
     // Update is called once per frame
@@ -94,6 +96,7 @@ public class EnemyController : MonoBehaviour
     {
         movement = 0f;
         ai.SetDestination(transform.position);
+        GetComponent<CapsuleCollider>().enabled = false;
         animator.Play("Die");
         Destroy(gameObject, 1f);
     }

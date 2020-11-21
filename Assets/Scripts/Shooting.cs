@@ -26,11 +26,13 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonUp("Fire1"))
+        if(!GameManager.isPaused)
         {
-            StartCoroutine(Fire());
+            if (Input.GetButtonDown("Fire1"))
+            {
+                StartCoroutine(Fire());
+            }
         }
-
     }
 
     private IEnumerator Fire()

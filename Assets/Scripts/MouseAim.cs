@@ -16,9 +16,6 @@ public class MouseAim : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         shiftSpeed = GameSetting.YAXISSENTITITY;
         invert = GameSetting.IsYInsert_f();
 
@@ -28,26 +25,29 @@ public class MouseAim : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        float mouseY = Input.GetAxis("Mouse Y") * shiftSpeed * invert;
-
-        transform.Rotate(mouseY, 0f, 0f);
-        Vector3 rotation = transform.localRotation.eulerAngles;
-
-        if(rotation.x > 180)
+        if(!GameManager.isPaused)
         {
-            rotation.x -= 360;
-        }
+            float mouseY = Input.GetAxis("Mouse Y") * shiftSpeed * invert;
 
-        if(movement.isGrounded)
-        {
-            yCameraLimit = yCameraLimit1;
-        }
-        else
-        {
-            yCameraLimit = yCameraLimit2;
-        }
+            transform.Rotate(mouseY, 0f, 0f);
+            Vector3 rotation = transform.localRotation.eulerAngles;
 
-        rotation.x = Mathf.Clamp(rotation.x,(-1 * yCameraLimit), yCameraLimit);
-        transform.localRotation = Quaternion.Euler(rotation);
+            if (rotation.x > 180)
+            {
+                rotation.x -= 360;
+            }
+
+            if (movement.isGrounded)
+            {
+                yCameraLimit = yCameraLimit1;
+            }
+            else
+            {
+                yCameraLimit = yCameraLimit2;
+            }
+
+            rotation.x = Mathf.Clamp(rotation.x, (-1 * yCameraLimit), yCameraLimit);
+            transform.localRotation = Quaternion.Euler(rotation);
+        }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData
+public static class PlayerData
 {
     //Max Health = 10 * consititution
     //Range = 1 + (10% of intelligence)
@@ -56,6 +56,7 @@ public class PlayerData
     {
         return movementSpeed + (dexterity * 0.1f);
     }
+
     public static float GetJumpSpeed()
     {
         return jumpspeed;

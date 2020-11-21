@@ -59,12 +59,11 @@ public class PlayerStatus : MonoBehaviour
         if(currentHealth < 1)
         {
             Debug.Log("GAME OVER");
+            currentHealth = 0;
         }
-        else
-        {
-            healthText.text = currentHealth + " / " + maxHealth;
-            healthSlider.value = currentHealth;
-        } 
+
+        healthText.text = currentHealth + " / " + maxHealth;
+        healthSlider.value = currentHealth;
     }
 
     public void GainEXP(int value)

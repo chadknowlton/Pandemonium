@@ -10,7 +10,6 @@ public class EnemyStatus : MonoBehaviour
     private Slider healthslider;
     private TMP_Text healthText;
 
-    public float aggroRange;
     public bool isDead = false;
 
     void Start()
@@ -18,7 +17,6 @@ public class EnemyStatus : MonoBehaviour
         data = GetComponent<EnemyData>();
         healthslider = transform.GetChild(2).GetChild(0).GetComponent<Slider>();
         healthText  = transform.GetChild(2).GetChild(0).GetChild(3).GetComponent<TMP_Text>();
-        aggroRange = data.aggroRange;
 
         healthslider.maxValue = data.maxHealth;
         healthslider.value = data.health;
