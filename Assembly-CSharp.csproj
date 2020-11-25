@@ -56,23 +56,28 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\AttackPoint.cs" />
-    <Compile Include="Assets\Scripts\ThirdPersonMovement.cs" />
-    <Compile Include="Assets\Scripts\Projectile.cs" />
-    <Compile Include="Assets\Scripts\Spawner.cs" />
-    <Compile Include="Assets\Scripts\PlayerData.cs" />
-    <Compile Include="Assets\Scripts\EnemyData.cs" />
-    <Compile Include="Assets\Scripts\BillBoard.cs" />
-    <Compile Include="Assets\Scripts\PlayerStatus.cs" />
-    <Compile Include="Assets\Scripts\EnemyStatus.cs" />
-    <Compile Include="Assets\Scripts\MouseAim.cs" />
-    <Compile Include="Assets\Scripts\Shooting.cs" />
-    <Compile Include="Assets\Scripts\GameSetting.cs" />
-    <Compile Include="Assets\Scripts\TowerData.cs" />
-    <Compile Include="Assets\UI\Fonts\JazzCreateBubble\Script\scriptTexttest.cs" />
+    <Compile Include="Assets\Scripts\Menu\TycheSystem.cs" />
+    <Compile Include="Assets\Scripts\Controller\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Sun.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\AttackPoint.cs" />
+    <Compile Include="Assets\Scripts\Controller\ThirdPersonMovement.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Spawner.cs" />
+    <Compile Include="Assets\UI\Fonts\JazzCreateBubble\Script\scriptTexttest.cs" />
+    <Compile Include="Assets\Scripts\Utilities\Sun.cs" />
+    <Compile Include="Assets\Scripts\Data\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\Data\EnemyData.cs" />
+    <Compile Include="Assets\Scripts\Utilities\BillBoard.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\PlayerStatus.cs" />
+    <Compile Include="Assets\Scripts\Data\TowerData.cs" />
+    <Compile Include="Assets\Scripts\Menu\LevelLoader.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\EnemyStatus.cs" />
+    <Compile Include="Assets\Scripts\Controller\MouseAim.cs" />
+    <Compile Include="Assets\Scripts\Controller\Shooting.cs" />
+    <Compile Include="Assets\Scripts\Data\GameSetting.cs" />
+    <Compile Include="Assets\Scripts\Menu\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Menu\LevelUpMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

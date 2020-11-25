@@ -4,51 +4,47 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject pauseMenu;
-
     public static bool isPaused = false;
+    public static bool isPausedStats = false;
+
+    public float getCountDelay = 1f;
+
+    private int enemyCount;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        StartCoroutine(GetEnemyCount());
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+
+    }
+
+    public void AnEnemyDied()
+    {
+        enemyCount--;
+
+        if (enemyCount < 1)
         {
-            if(isPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
+            StartCoroutine(AllEnemyKilled());
         }
     }
 
-    void PauseGame()
+    private IEnumerator GetEnemyCount()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
-        Time.timeScale = 0f;
-        isPaused = true;
-        pauseMenu.SetActive(true);
+        yield return new WaitForSeconds(getCountDelay);
+
+        enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
 
-    public void ResumeGame()
+    private IEnumerator AllEnemyKilled()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        Time.timeScale = 1f;
-        isPaused = false;
-        pauseMenu.SetActive(false);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
+        yield return new WaitForSeconds(1f);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>().UpdatePlayerData();
+        GetComponent<LevelUpMenu>().startLevelUp();
     }
 }
