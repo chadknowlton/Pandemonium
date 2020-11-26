@@ -18,22 +18,27 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
+        int rankLimit = 0;
         isRank = TowerData.isRank;
+
            
         if(isRank)
         {
             rank = TowerData.rank;
 
             numToSpawn = (int)(Random.Range(1f, TowerData.GetRemainingMonsterleft(rank) + 0.99f));
-            
-            if(numToSpawn > TowerData.SpawnLimit)
+            rankLimit = TowerData.GetMax();
+
+            if (numToSpawn > rankLimit)
             {
-                numToSpawn = TowerData.SpawnLimit;
+                numToSpawn = rankLimit;
             }
 
-            if(numToSpawn < TowerData.GetMin())
+            rankLimit = TowerData.GetMin();
+
+            if (numToSpawn < rankLimit)
             {
-                numToSpawn = TowerData.GetMin();
+                numToSpawn = rankLimit;
             }
 
             TowerData.RemoveMonster(rank, numToSpawn);

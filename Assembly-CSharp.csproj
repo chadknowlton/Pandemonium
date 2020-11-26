@@ -64,8 +64,11 @@
     <Compile Include="Assets\Scripts\Controller\ThirdPersonMovement.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Projectile.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Spawner.cs" />
+    <Compile Include="Assets\Scripts\Menu\LevelUpMenu.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\ExitLevel.cs" />
     <Compile Include="Assets\UI\Fonts\JazzCreateBubble\Script\scriptTexttest.cs" />
     <Compile Include="Assets\Scripts\Utilities\Sun.cs" />
+    <Compile Include="Assets\Scripts\Menu\GameManagerFinal.cs" />
     <Compile Include="Assets\Scripts\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Data\EnemyData.cs" />
     <Compile Include="Assets\Scripts\Utilities\BillBoard.cs" />
@@ -77,7 +80,7 @@
     <Compile Include="Assets\Scripts\Controller\Shooting.cs" />
     <Compile Include="Assets\Scripts\Data\GameSetting.cs" />
     <Compile Include="Assets\Scripts\Menu\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\Menu\LevelUpMenu.cs" />
+    <Compile Include="Assets\Scripts\Menu\GameOver.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

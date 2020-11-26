@@ -59,7 +59,6 @@ public class LevelUpMenu : MonoBehaviour
         for(int i = 0; i < 5; i++)
         {
             statsCounter[i] = stats[i + 2];
-            Debug.Log(statsCounter[i]);
         }
 
         scoreText.text = "SCORE: " + stats[0];

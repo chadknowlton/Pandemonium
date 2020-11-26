@@ -12,12 +12,18 @@ public static class TowerData
     private static int currentFloor = 1;
     private static int maxFloor = 10;
 
-    private static int numofArank = 10;
+    /*private static int numofArank = 10;
     private static int numofBrank = 15;
     private static int numofCrank = 25;
-    private static int numofDrank = 50;
+    private static int numofDrank = 50;*/
+
+    private static int numofArank = 100;
+    private static int numofBrank = 100;
+    private static int numofCrank = 2;
+    private static int numofDrank = 2;
 
     private static int spawnMin = 1;
+    private static int spawnLimitBase = 20;
     private static int spawnLimit = 20;
 
     public static void NewGame()
@@ -40,7 +46,7 @@ public static class TowerData
     }
     public static int SpawnLimit { get { return spawnLimit; } }
 
-    public static int CurrentFloor { get { return spawnLimit; } }
+    public static int CurrentFloor { get { return currentFloor; } }
 
     public static int MaxFloor { get { return maxFloor; } }
 
@@ -102,14 +108,14 @@ public static class TowerData
     public static int GetMin()
     {
         int total = numofArank + numofBrank + numofCrank + numofDrank;
-        int floorleft = maxFloor - (currentFloor - 1);
+        int floorLeft = maxFloor - (currentFloor - 1);
         int fullFloor = total / spawnLimit;
 
-        if ((floorleft - fullFloor) > 1)
+        if ((floorLeft - fullFloor) > 1)
         {
             spawnMin = 1;
         }
-        else if ((floorleft - fullFloor) == 1)
+        else if ((floorLeft - fullFloor) == 1)
         {
 
             spawnMin = total % spawnLimit;
@@ -120,6 +126,25 @@ public static class TowerData
         }
 
         return spawnMin;
+    }
+
+    public static int GetMax()
+    {
+        int total = numofArank + numofBrank + numofCrank + numofDrank;
+        int floorLeft = maxFloor - (currentFloor - 1);
+
+        total -= floorLeft;
+
+        if(total < spawnLimitBase - 1)
+        {
+            spawnLimit = total + 1;
+        }
+        else
+        {
+            spawnLimit = spawnLimitBase;
+        }
+
+        return spawnLimit;
     }
 }
 

@@ -25,7 +25,10 @@ public class EnemyStatus : MonoBehaviour
 
     public void AttackPlayer(Collider other)
     {
-        other.gameObject.GetComponent<PlayerStatus>().TakeDamage(data.damage);
+        if(!PlayerStatus.isDead)
+        {
+            other.gameObject.GetComponent<PlayerStatus>().TakeDamage(data.damage);
+        }
     }
     public void TakeDamage(int value)
     {

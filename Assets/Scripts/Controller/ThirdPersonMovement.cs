@@ -43,7 +43,7 @@ public class ThirdPersonMovement : MonoBehaviour
             animator.SetBool("Jumping", false);
 
 
-            Vector3 direction = new Vector3(horizontal, 0f, vertical); ;
+            Vector3 direction = new Vector3(horizontal, 0f, vertical);
 
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
@@ -64,6 +64,16 @@ public class ThirdPersonMovement : MonoBehaviour
 
             controller.Move(direction * movementSpeed * Time.deltaTime);
         }
+        else if(PlayerStatus.isDead)
+        {
+            if (!isGrounded)
+            {
+                Vector3 direction = Vector3.zero;
+                jump += .5f * Physics.gravity.y * Time.deltaTime;
+                direction.y = jump;
+                controller.Move(direction * movementSpeed * Time.deltaTime);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -83,12 +93,7 @@ public class ThirdPersonMovement : MonoBehaviour
         movementSpeed = PlayerData.GetMovementSpeed();
     }
 
-    public void Death()
-    {
-        StartCoroutine(DeathAnimation());
-    }
-
-    public IEnumerator DeathAnimation()
+    public IEnumerator Death()
     {
         animator.Play("Death");
         yield return new WaitForSeconds(2.0f);

@@ -42,17 +42,14 @@ public class TycheSystem : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         rankMenu.SetActive(false);
         numberMenu.SetActive(false);
 
-        spawnLimit = TowerData.SpawnLimit;
-
-        if (spawnLimit > TowerData.GetTotalMonsterLeft)
-        {
-            spawnLimit = TowerData.GetTotalMonsterLeft;
-        }
-
         minSpawn = TowerData.GetMin();
+        spawnLimit = TowerData.GetMax();
     }
 
     void Update()

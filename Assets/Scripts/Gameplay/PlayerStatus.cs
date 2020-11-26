@@ -28,6 +28,7 @@ public class PlayerStatus : MonoBehaviour
 
     void Start()
     {
+        isDead = false;
         maxHealth = PlayerData.GetMaxHealth();
         currentHealth = PlayerData.CurrentHealth;
         maxEXP = PlayerData.GetMaxEXP();
@@ -63,6 +64,7 @@ public class PlayerStatus : MonoBehaviour
         currentHealth += PlayerData.GetMaxHealth() - maxHealth;
         maxHealth = PlayerData.GetMaxHealth();
         currentHealth += Mathf.RoundToInt((maxHealth - currentHealth) * EndofLevelHeal);
+        PlayerData.CurrentHealth = currentHealth;
 
         healthText.text = currentHealth + " / " + maxHealth;
         healthSlider.maxValue = maxHealth;
@@ -77,7 +79,9 @@ public class PlayerStatus : MonoBehaviour
         {
             currentHealth = 0;
             isDead = true;
-            GetComponent<ThirdPersonMovement>().Death();
+            PlayerData.Highscore = score;
+            StartCoroutine(GetComponent<ThirdPersonMovement>().Death());
+            StartCoroutine(GameObject.Find("GameManager").GetComponent<GameOver>().GameIsOver());
         }
 
         healthText.text = currentHealth + " / " + maxHealth;
@@ -106,5 +110,4 @@ public class PlayerStatus : MonoBehaviour
         PlayerData.LevelUp();
         levelText.text = "" + PlayerData.Level;
     }
-
 }

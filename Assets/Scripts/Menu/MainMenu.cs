@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject menu;
+    public TMP_Text highScoreText;
 
     private GameObject controlPage;
     private GameObject loadingScreen;
@@ -18,6 +21,7 @@ public class MainMenu : MonoBehaviour
         controlPage.SetActive(false);
         loadingScreen = menu.transform.Find("LoadingScreen").gameObject;
         loadingScreen.SetActive(false);
+        highScoreText.text = "Highscore: " + PlayerPrefs.GetInt("HIGHSCORE", 0);
     }
 
     void Update()
