@@ -67,7 +67,7 @@ public static class PlayerData
         movementSpeed = 5f + (dexterity * .15f);
         jumpspeed = 2f;
 
-        projectileRange = 0.1f * intelligence;
+        projectileRange = 0.3f * intelligence;
         projectileSpeed = 10f + (dexterity * 2);
 
         shootDelay = 1f - (.075f * dexterity);
