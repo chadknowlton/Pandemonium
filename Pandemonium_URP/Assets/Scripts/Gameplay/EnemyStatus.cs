@@ -7,6 +7,7 @@ using TMPro;
 public class EnemyStatus : MonoBehaviour
 {
     private EnemyData data;
+
     public Slider healthslider;
     public TMP_Text healthText;
 
@@ -38,9 +39,11 @@ public class EnemyStatus : MonoBehaviour
             {
                 data.health = 0;
                 isDead = true;
+                
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>().GainEXP(data.expGain);
                 GetComponent<EnemyController>().Die();
                 GameObject.Find("GameManager").GetComponent<GameManager>().AnEnemyDied();
+                
             }
 
             healthslider.value = data.health;

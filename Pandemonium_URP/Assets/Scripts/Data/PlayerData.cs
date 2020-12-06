@@ -55,10 +55,10 @@ public static class PlayerData
         movementSpeed = 5f;
         jumpspeed = 2f;
 
-        projectileRange = 0.5f;
+        projectileRange = 1f;
         projectileSpeed = 10f;
 
-        shootDelay = 1f;
+        shootDelay = .75f;
     }
 
     public static int[] GetForStatsScreen()
@@ -114,7 +114,7 @@ public static class PlayerData
 
     public static float ShootingDelay
     {
-        get { return shootDelay - (dexterity * 0.05f); }
+        get { return shootDelay - (dexterity * 0.01f); }
     }
 
     public static int GetDefense()
@@ -134,7 +134,7 @@ public static class PlayerData
 
     public static float GetShootingRange()
     {
-        return projectileRange + (0.1f * intelligence);
+        return projectileRange + (0.05f * intelligence);
     }
 
     public static float GetProjectileSpeed()

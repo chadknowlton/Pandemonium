@@ -5,7 +5,7 @@ using UnityEngine;
 public static class TowerData
 {
     public static bool isRank = true;
-    public static bool isBoss = false;
+    public static bool isBoss = true;
     public static char rank = 'A';
     public static int ToSpawn = 5;
     public static float multiplier = 1f;
