@@ -66,7 +66,7 @@ public class EnemyData : MonoBehaviour
     {
         rank = 'C';
         aggroRange = 30f;
-        movementSpeed = 3f;
+        movementSpeed = 6f;
         stunDelay = 1f;
 
         int minTempHealth = 20;
@@ -84,7 +84,7 @@ public class EnemyData : MonoBehaviour
     {
         rank = 'C';
         aggroRange = 35f;
-        movementSpeed = 4f;
+        movementSpeed = 6f;
         stunDelay = 2f;
 
         int minTempHealth = 20;
@@ -102,7 +102,7 @@ public class EnemyData : MonoBehaviour
     {
         rank = 'B';
         aggroRange = 40f;
-        movementSpeed = 3f;
+        movementSpeed = 4f;
         stunDelay = 2.5f;
 
         int minTempHealth = 50;
@@ -120,7 +120,7 @@ public class EnemyData : MonoBehaviour
     {
         rank = 'A';
         aggroRange = 45f;
-        movementSpeed = 3f;
+        movementSpeed = 7f;
         stunDelay = 2f;
 
         int minTempHealth = 100;

@@ -31,9 +31,6 @@ public class ExitLevel : MonoBehaviour
             {
                 gm.GetComponent<LevelLoader>().LoadLevel("Tyche_System");
             }
-
-            Debug.Log("FLOOR " + TowerData.CurrentFloor +
-                ": " + TowerData.GetTotalMonsterLeft);
         }
     }
 }

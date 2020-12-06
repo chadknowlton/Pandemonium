@@ -76,7 +76,7 @@ public class PlayerStatus : MonoBehaviour
     public void TakeDamage(int value)
     {
         currentHealth -= value - Mathf.RoundToInt((float)value * ((float)defense / 100));
-        Debug.Log(value + " - " + Mathf.RoundToInt((float)value * ((float)defense / 100)));
+
         if(currentHealth < 1)
         {
             currentHealth = 0;

@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Menu\TycheSystem.cs" />
     <Compile Include="Assets\Scripts\Controller\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
+    <Compile Include="Assets\WinScript.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\AttackPoint.cs" />
     <Compile Include="Assets\Scripts\Controller\ThirdPersonMovement.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\Scripts\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Data\EnemyData.cs" />
     <Compile Include="Assets\Scripts\Utilities\BillBoard.cs" />
+    <Compile Include="Assets\TestScript.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerStatus.cs" />
     <Compile Include="Assets\Scripts\Data\TowerData.cs" />
     <Compile Include="Assets\Scripts\Menu\LevelLoader.cs" />
@@ -81,8 +83,7 @@
     <Compile Include="Assets\Scripts\Controller\Shooting.cs" />
     <Compile Include="Assets\Scripts\Data\GameSetting.cs" />
     <Compile Include="Assets\Scripts\Menu\PauseMenu.cs" />
-    <Compile Include="Assets\TestScript.cs" />
-    <Compile Include="Assets\WinScript.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Effects.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -218,7 +218,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthslider: {fileID: 7802867017718189109}
   healthText: {fileID: 7802867017919961260}
-  effect: {fileID: 1250507045210962, guid: 3fe0df07025a3e747855b1bb671fc04e, type: 3}
   isDead: 0
 --- !u!114 &6836638789633578306
 MonoBehaviour:
@@ -245,7 +244,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 180
+  m_AngularSpeed: 300
   m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

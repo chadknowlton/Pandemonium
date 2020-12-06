@@ -30,7 +30,6 @@ public class EnemyStatus : MonoBehaviour
     }
     public void TakeDamage(int value)
     {
-        Debug.Log("TOOK DAMAGE: " + gameObject.name);
         if (!isDead)
         {
             data.health -= value;
