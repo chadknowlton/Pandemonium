@@ -44,7 +44,8 @@ public static class TowerData
         numofDrank = 50;
 
         spawnMin = 1;
-        spawnLimit = 20;
+        spawnLimitBase = 20;
+        spawnLimit = spawnLimitBase;
     }
     public static int SpawnLimit { get { return spawnLimit; } }
 
